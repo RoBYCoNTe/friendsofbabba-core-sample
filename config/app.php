@@ -48,6 +48,10 @@ return [
      *   paths for plugins, view templates and locale files respectively.
      */
     'App' => [
+        'name' => 'Sample App',
+        'logo' => false,
+        'dashboard' => '/dashboard/index.html#/',
+
         'namespace' => 'App',
         'encoding' => env('APP_ENCODING', 'UTF-8'),
         'defaultLocale' => env('APP_DEFAULT_LOCALE', 'en_US'),
@@ -181,7 +185,7 @@ return [
      */
     'Error' => [
         'errorLevel' => E_ALL,
-        'exceptionRenderer' => ExceptionRenderer::class,
+        'exceptionRenderer' => \FriendsOfBabba\Core\Error\AppExceptionRenderer::class,
         'skipLog' => [],
         'log' => true,
         'trace' => true,
