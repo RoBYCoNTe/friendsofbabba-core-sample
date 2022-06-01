@@ -1,4 +1,5 @@
 !dockerfiles/**
-!README.md
 dockerfiles/mutagen.yml.lock
 vendor
+logs/*
+!logs/.gitkeep
