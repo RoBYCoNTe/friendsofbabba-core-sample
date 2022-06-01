@@ -1,0 +1,4 @@
+!dockerfiles/**
+!README.md
+dockerfiles/mutagen.yml.lock
+vendor

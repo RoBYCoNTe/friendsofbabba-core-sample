@@ -1,0 +1,58 @@
+version: "3"
+services:
+  web:
+    container_name: ${APP_NAME}_web
+    build:
+      context: ../
+      dockerfile: dockerfiles/nginx/Dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - code:/var/www/html:delegated
+      - ./certs:/etc/nginx/certs:delegated
+      - /var/www/html/.git
+      - /var/www/html/.vscode
+    links:
+      - php
+    tty: true
+    environment:
+      NGINX_HOST: ${NGINX_HOST}
+      NGINX_PORT: ${NGINX_PORT}
+    # command: /bin/bash -c "envsubst < /etc/nginx/conf.d/site.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+
+  php:
+    container_name: ${APP_NAME}_php
+    build:
+      context: ../
+      dockerfile: dockerfiles/php/Dockerfile
+    ports:
+      - 9000:9000
+    volumes:
+      - code:/var/www/html:delegated
+      - /var/www/html/.git
+      - /var/www/html/.vscode
+    environment:
+      XDEBUG_CONFIG: remote_host=host.docker.internal remote_port=9003 remote_enable=1
+      DB_PASS: ${DB_PASS}
+      DB_USER: ${DB_USER}
+      DB_HOST: ${DB_HOST}
+      DB_NAME: ${DB_NAME}
+  db:
+    image: mariadb
+    restart: always
+    container_name: ${APP_NAME}_db
+    volumes:
+      - db:/var/lib/mysql:delegated
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASS}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
+    ports:
+      - 3306:3306
+volumes:
+  db:
+    name: ${APP_NAME}_db
+  code:
+    name: ${APP_NAME}_code

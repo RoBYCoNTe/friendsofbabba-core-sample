@@ -1,0 +1,27 @@
+beforeCreate:
+  - docker compose up -d #--build --force-recreate --remove-orphans
+  - docker exec -it friendsofbabba_core_sample_php chown -R www-data:www-data /var/www/
+  - docker exec -it friendsofbabba_core_sample_web chown -R www-data:www-data /var/www/
+afterTerminate:
+  - docker compose down
+sync:
+  defaults:
+    flushOnCreate: true
+    ignore:
+      vcs: true
+  php:
+    alpha: "../"
+    beta: "docker://www-data@friendsofbabba_core_sample_php/var/www/html"
+    mode: "two-way-resolved"
+    ignore:
+      paths:
+        - "dockerfiles"
+        - "mutagen.yml"
+        - "mutagen.yml.lock"
+        - ".vagrant"
+        - ".git"
+        - ".idea"
+        - ".vscode"
+        - ".github"
+        - "deploy"
+        - "tmp"

@@ -1,0 +1,21 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "API (v2) - Debugger",
+			"type": "php",
+			"request": "launch",
+			"port": 9003,
+			"log": true,
+			"pathMappings": {
+				"/var/www/html/": "${workspaceFolder}/"
+			},
+			"ignore": [
+				//   "**/Vendor/**/*.php",
+				//   "**/tmp/**/*.php",
+				//   "**/lib/**",
+				//   "**/vendor/**"
+			]
+		}
+	]
+}
