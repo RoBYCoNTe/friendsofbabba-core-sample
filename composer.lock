@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "739d46cb65453907c26e451668fe58e5",
+    "content-hash": "caa9cd256eabda21a01cf7f23f0384fe",
     "packages": [
         {
             "name": "cakephp/authentication",
@@ -597,16 +597,16 @@
         },
         {
             "name": "friendsofbabba/core",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RoBYCoNTe/friendsofbabba-core.git",
-                "reference": "27d76e3f83dcd67e8d47f15ed1ea9312ef8fca1e"
+                "reference": "7fd558c45e5b9f017633db14f74ec9eea77f6ce5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RoBYCoNTe/friendsofbabba-core/zipball/27d76e3f83dcd67e8d47f15ed1ea9312ef8fca1e",
-                "reference": "27d76e3f83dcd67e8d47f15ed1ea9312ef8fca1e",
+                "url": "https://api.github.com/repos/RoBYCoNTe/friendsofbabba-core/zipball/7fd558c45e5b9f017633db14f74ec9eea77f6ce5",
+                "reference": "7fd558c45e5b9f017633db14f74ec9eea77f6ce5",
                 "shasum": ""
             },
             "require": {
@@ -636,9 +636,9 @@
             "description": "FriendsOfBabba/Core plugin for CakePHP",
             "support": {
                 "issues": "https://github.com/RoBYCoNTe/friendsofbabba-core/issues",
-                "source": "https://github.com/RoBYCoNTe/friendsofbabba-core/tree/v1.0.0"
+                "source": "https://github.com/RoBYCoNTe/friendsofbabba-core/tree/v1.0.1"
             },
-            "time": "2022-05-30T07:40:08+00:00"
+            "time": "2022-06-01T16:14:46+00:00"
         },
         {
             "name": "friendsofcake/crud",
