@@ -422,4 +422,20 @@ return [
     'Session' => [
         'defaults' => 'php',
     ],
+    'Permissions' => [
+        'user' => '*',
+        'admin' => '*',
+        'developer' => '*'
+    ],
+    'Extender' => [
+        'Model' => [
+            'Entity' => [
+                'UserProfile' => \FriendsOfBabba\Core\Model\Entity\Extender\SpidUserProfileExtender::class
+            ],
+            'Table' => [
+                'Users' => \FriendsOfBabba\Core\Model\Table\Extender\SpidUsersTableExtender::class,
+                'UserProfiles' => \FriendsOfBabba\Core\Model\Table\Extender\SpidUserProfilesTableExtender::class,
+            ]
+        ]
+    ],
 ];

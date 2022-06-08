@@ -90,4 +90,21 @@ return [
             'url' => env('EMAIL_TRANSPORT_DEFAULT_URL', null),
         ],
     ],
+    'Spid' => [
+        'endpoint' => 'https://stradaperstrada.regione.puglia.it/simplesaml/login',
+        'service' => 'centririsorse',
+        'secret' => 'x3Wr$HYgq3$$',
+        'expires' => 300,
+        'table' => 'FriendsOfBabba/Core.Users',
+        'finder' => 'UserProfiles.fiscal_code',
+        'joins' => ['UserProfiles'],
+        'contain' => ['UserProfiles', 'Roles'],
+        'roles' => ['user'],
+        'back' => [
+            'client' => "http://localhost:3000/#/login"
+        ]
+    ],
+    'Recaptcha' => [
+        'secret' => '6LekNssfAAAAAG8N3B4vxsKhr34qx9UpouX3cykR'
+    ]
 ];

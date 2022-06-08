@@ -598,16 +598,16 @@
         },
         {
             "name": "friendsofbabba/core",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RoBYCoNTe/friendsofbabba-core.git",
-                "reference": "0c70145d491617362212fa94f38a6e8db5f6ab32"
+                "reference": "3808a8d04011ffd213445daca34ac1b761397cfe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RoBYCoNTe/friendsofbabba-core/zipball/0c70145d491617362212fa94f38a6e8db5f6ab32",
-                "reference": "0c70145d491617362212fa94f38a6e8db5f6ab32",
+                "url": "https://api.github.com/repos/RoBYCoNTe/friendsofbabba-core/zipball/3808a8d04011ffd213445daca34ac1b761397cfe",
+                "reference": "3808a8d04011ffd213445daca34ac1b761397cfe",
                 "shasum": ""
             },
             "require": {
@@ -637,9 +637,9 @@
             "description": "FriendsOfBabba/Core plugin for CakePHP",
             "support": {
                 "issues": "https://github.com/RoBYCoNTe/friendsofbabba-core/issues",
-                "source": "https://github.com/RoBYCoNTe/friendsofbabba-core/tree/v1.0.2"
+                "source": "https://github.com/RoBYCoNTe/friendsofbabba-core/tree/v1.0.3"
             },
-            "time": "2022-06-03T07:40:46+00:00"
+            "time": "2022-06-06T13:39:58+00:00"
         },
         {
             "name": "friendsofcake/crud",
@@ -6987,21 +6987,21 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "1.10.0",
+            "version": "1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozarts/assert.git",
-                "reference": "6964c76c7804814a842473e0c8fd15bab0f18e25"
+                "reference": "11cb2199493b2f8a3b53e7f19068fc6aac760991"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozarts/assert/zipball/6964c76c7804814a842473e0c8fd15bab0f18e25",
-                "reference": "6964c76c7804814a842473e0c8fd15bab0f18e25",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/11cb2199493b2f8a3b53e7f19068fc6aac760991",
+                "reference": "11cb2199493b2f8a3b53e7f19068fc6aac760991",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2 || ^8.0",
-                "symfony/polyfill-ctype": "^1.8"
+                "ext-ctype": "*",
+                "php": "^7.2 || ^8.0"
             },
             "conflict": {
                 "phpstan/phpstan": "<0.12.20",
@@ -7039,9 +7039,9 @@
             ],
             "support": {
                 "issues": "https://github.com/webmozarts/assert/issues",
-                "source": "https://github.com/webmozarts/assert/tree/1.10.0"
+                "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
-            "time": "2021-03-09T10:59:23+00:00"
+            "time": "2022-06-03T18:03:27+00:00"
         }
     ],
     "aliases": [],

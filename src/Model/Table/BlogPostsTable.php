@@ -100,6 +100,7 @@ class BlogPostsTable extends BaseTable
         $validator
             ->nonNegativeInteger('id')
             ->allowEmptyString('id', null, 'create');
+        $validator->requirePresence('author_id');
 
         $validator
             ->scalar('title')
@@ -156,8 +157,13 @@ class BlogPostsTable extends BaseTable
             ->setComponent("ReferenceSelectInput")
             ->setComponentProp("reference", "users")
             ->setComponentProp("optionText", "name");
-        $form->getInput("title")->fullWidth();
+        $form->getInput("title")
+            ->setComponent("DebouncedTextInput")
+            ->setComponentProp("maxLength", 100)
+            ->fullWidth();
         $form->getInput("content")
+            ->setComponent("DebouncedTextInput")
+            ->setComponentProp("maxLength", 1000)
             ->setComponentProp("multiline", true)
             ->fullWidth();
 

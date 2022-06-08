@@ -27,7 +27,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "App\\": "src/",
+            "FriendsOfBabba\\Core\\": "plugins/FriendsOfBabba/Core/src/"
         }
     },
     "autoload-dev": {
