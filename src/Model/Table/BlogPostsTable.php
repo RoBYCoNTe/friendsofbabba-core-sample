@@ -172,6 +172,14 @@ class BlogPostsTable extends BaseTable
             ->setComponentProp("reference", "blog-categories")
             ->setComponentProp("optionText", "name")
             ->fullWidth(), "after", "content");
+
+        $form->addInput(
+            FormInput::create("blog_post_comments", "Comments")
+                ->setComponent("BlogPostCommentsField")
+                ->fullWidth(),
+            "after",
+            "content"
+        );
         return $form;
     }
 }

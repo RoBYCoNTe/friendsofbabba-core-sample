@@ -48,6 +48,7 @@ $routes->setRouteClass(DashedRoute::class);
 $routes->prefix("api", [], function (RouteBuilder $routes) {
     $routes->setExtensions(['xml', 'json']);
     $routes->resources('BlogCategories', ['inflect' => 'dasherize']);
+    $routes->resources('BlogPostComments', ['inflect' => 'dasherize']);
 });
 
 $routes->scope('/', function (RouteBuilder $builder) {

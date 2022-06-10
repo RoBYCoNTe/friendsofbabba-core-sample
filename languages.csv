@@ -153,6 +153,7 @@ it	resources.blog-categories.fields.id	Id
 it	resources.blog-categories.fields.modified	Modified
 it	resources.blog-categories.fields.name	Name
 it	resources.blog-categories.name	Blog Category |||| Blog Categories
+it	resources.blog-post-comments.name	Comment |||| Comments
 it	resources.blog-posts.fields.author_id	Author Id
 it	resources.blog-posts.fields.content	Content
 it	resources.blog-posts.fields.created	Created
