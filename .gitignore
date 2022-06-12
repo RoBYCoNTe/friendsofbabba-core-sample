@@ -3,4 +3,7 @@ dockerfiles/mutagen.yml.lock
 vendor
 logs/*
 !logs/.gitkeep
+.DS_Store
+
+
 plugins/FriendsOfBabba

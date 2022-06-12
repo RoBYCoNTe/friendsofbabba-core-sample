@@ -37,39 +37,9 @@ return [
     'Datasources' => [
         'default' => [
             'host' => env('DB_HOST'),
-            /*
-             * CakePHP will use the default DB port based on the driver selected
-             * MySQL on MAMP uses port 8889, MAMP users will want to uncomment
-             * the following line and set the port accordingly
-             */
-            //'port' => 'non_standard_port_number',
-
             'username' => env('DB_USER'),
             'password' => env('DB_PASS'),
             'database' => env('DB_NAME'),
-            /*
-             * If not using the default 'public' schema with the PostgreSQL driver
-             * set it here.
-             */
-            //'schema' => 'myapp',
-
-            /*
-             * You can use a DSN string to set the entire configuration
-             */
-            'url' => env('DATABASE_URL', null),
-        ],
-
-        /*
-         * The test connection is used during the test suite.
-         */
-        'test' => [
-            'host' => 'localhost',
-            //'port' => 'non_standard_port_number',
-            'username' => 'my_app',
-            'password' => 'secret',
-            'database' => 'test_myapp',
-            //'schema' => 'myapp',
-            'url' => env('DATABASE_TEST_URL', null),
         ],
     ],
 
@@ -90,21 +60,4 @@ return [
             'url' => env('EMAIL_TRANSPORT_DEFAULT_URL', null),
         ],
     ],
-    'Spid' => [
-        'endpoint' => 'https://stradaperstrada.regione.puglia.it/simplesaml/login',
-        'service' => 'centririsorse',
-        'secret' => 'x3Wr$HYgq3$$',
-        'expires' => 300,
-        'table' => 'FriendsOfBabba/Core.Users',
-        'finder' => 'UserProfiles.fiscal_code',
-        'joins' => ['UserProfiles'],
-        'contain' => ['UserProfiles', 'Roles'],
-        'roles' => ['user'],
-        'back' => [
-            'client' => "http://localhost:3000/#/login"
-        ]
-    ],
-    'Recaptcha' => [
-        'secret' => '6LekNssfAAAAAG8N3B4vxsKhr34qx9UpouX3cykR'
-    ]
 ];
