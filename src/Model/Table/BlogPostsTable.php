@@ -7,6 +7,7 @@ namespace App\Model\Table;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\Validation\Validator;
+use FriendsOfBabba\Core\Export\Crud\CrudExcelDocument;
 use FriendsOfBabba\Core\Model\Entity\User;
 use FriendsOfBabba\Core\Model\Crud\Form;
 use FriendsOfBabba\Core\Model\Crud\FormInput;
@@ -137,6 +138,8 @@ class BlogPostsTable extends BaseTable
     public function getGrid(?User $user, bool $extends = TRUE): ?Grid
     {
         $grid = parent::getGrid($user, $extends);
+        // Add custom exporter for data.
+        $grid->addExporter("xlsx", new CrudExcelDocument($grid));
         $grid->setMobilePrimaryText("title");
         $grid->setMobileSecondaryText("content");
         $grid->setMobileLinkType("edit");
