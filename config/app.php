@@ -420,6 +420,9 @@ return [
                 'Users' => \FriendsOfBabba\Core\Model\Table\Extender\SpidUsersTableExtender::class,
                 'UserProfiles' => \FriendsOfBabba\Core\Model\Table\Extender\SpidUserProfilesTableExtender::class,
             ]
+        ],
+        'Controller' => [
+            'Users' => \App\Controller\Api\Extender\UsersControllerExtender::class
         ]
     ],
 ];

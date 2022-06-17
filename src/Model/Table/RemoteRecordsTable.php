@@ -31,7 +31,7 @@ use FriendsOfBabba\Core\Model\Table\BaseTable;
  */
 class RemoteRecordsTable extends BaseTable
 {
-    use SoftDeleteTrait;
+
     /**
      * Initialize method
      *
