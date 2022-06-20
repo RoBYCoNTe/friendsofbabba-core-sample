@@ -417,7 +417,10 @@ return [
                 'UserProfile' => \FriendsOfBabba\Core\Model\Entity\Extender\SpidUserProfileExtender::class
             ],
             'Table' => [
-                'Users' => \FriendsOfBabba\Core\Model\Table\Extender\SpidUsersTableExtender::class,
+                'Users' => [
+                    \FriendsOfBabba\Core\Model\Table\Extender\SpidUsersTableExtender::class,
+                    \App\Model\Table\Extender\UsersTableExtender::class
+                ],
                 'UserProfiles' => \FriendsOfBabba\Core\Model\Table\Extender\SpidUserProfilesTableExtender::class,
             ]
         ],
