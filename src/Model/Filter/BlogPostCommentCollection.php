@@ -20,5 +20,6 @@ class BlogPostCommentCollection extends BaseCollection
 			"wildcardOne" => "?",
 			"fields" => ['*']
 		]);
+		$this->value('blog_post_id');
 	}
 }

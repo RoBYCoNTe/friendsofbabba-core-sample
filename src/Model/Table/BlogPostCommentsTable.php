@@ -103,11 +103,26 @@ class BlogPostCommentsTable extends BaseTable
 
     public function getForm(?User $user, bool $extends = TRUE): ?Form
     {
-        return NULL;
+        $form = parent::getForm($user, $extends);
+        $form->setToolbarComponentProp("backReferenceTarget", "blog_post_id");
+        $form->setToolbarComponentProp("backReference", "blog-posts");
+        $form->setToolbarComponentProp("backTab", 0);
+        $form->removeInput("blog_post_id");
+        $form->getInput("comment_text")
+            ->setComponent("DebouncedTextInput")
+            ->setComponentProp("multiline", true)
+            ->setComponentProp("maxLength", 500)
+            ->fullWidth()
+            ->setLabel(__("Comment"));
+
+
+        return $form;
     }
 
     public function getGrid(?User $user, bool $extends = TRUE): ?Grid
     {
-        return NULL;
+        $grid = parent::getGrid($user, $extends);
+        $grid->getField("comment_text")->setComponent("LongTextField");
+        return $grid;
     }
 }

@@ -48,25 +48,6 @@ class BlogCategoriesTable extends BaseTable
 
         $this->addBehavior('Timestamp');
         $this->addBehavior('Search.Search', ['collectionClass' => \App\Model\Filter\BlogCategoryCollection::class]);
-
-
-        // Worflow relationships
-        // Relationship with current (last) transaction for BlogCategories
-        $this->hasOne('Transactions', [
-            'foreignKey' => 'record_id',
-            'className' => 'BlogCategoryTransactions',
-            'propertyName' => 'transaction',
-            'dependent' => true,
-            'conditions' => ['Transactions.is_current' => true]
-        ]);
-
-        // Relationship with all transaction for BlogCategories
-        $this->hasMany('AllTransactions', [
-            'foreignKey' => 'record_id',
-            'className' => 'BlogCategoryTransactions',
-            'propertyName' => 'all_transactions',
-            'dependent' => true
-        ]);
     }
 
     /**

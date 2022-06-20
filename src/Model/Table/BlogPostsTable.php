@@ -13,6 +13,7 @@ use FriendsOfBabba\Core\Model\Crud\Form;
 use FriendsOfBabba\Core\Model\Crud\FormInput;
 use FriendsOfBabba\Core\Model\Crud\Grid;
 use FriendsOfBabba\Core\Model\Crud\GridField;
+use FriendsOfBabba\Core\Model\CrudFactory;
 use SoftDelete\Model\Table\SoftDeleteTrait;
 use FriendsOfBabba\Core\Model\Table\BaseTable;
 
@@ -156,6 +157,7 @@ class BlogPostsTable extends BaseTable
     public function getForm(?User $user, bool $extends = TRUE): ?Form
     {
         $form = parent::getForm($user, $extends);
+        $form->setRedirect("edit");
         $form->getInput("author_id")
             ->setComponent("ReferenceSelectInput")
             ->setComponentProp("reference", "users")
@@ -178,7 +180,22 @@ class BlogPostsTable extends BaseTable
 
         $form->addInput(
             FormInput::create("blog_post_comments", "Comments")
-                ->setComponent("BlogPostCommentsField")
+                ->setComponent("ReferenceListField")
+                ->setComponentProp("sort", [
+                    "field" => "BlogPostComments.created",
+                    "order" => "desc"
+                ])
+                ->setComponentProp("reference", "blog-post-comments")
+                ->setComponentProp("target", "blog_post_id")
+                ->setComponentProp("columns", [
+                    GridField::create("comment_text", __("Comment"))
+                        ->setSortBy("BlogPostComments.comment_text")
+                        ->setComponent("LongTextField"),
+                    GridField::create("created", __("Created"))
+                        ->setSortBy("BlogPostComments.created")
+                        ->setComponent("DateField")
+                        ->setComponentProp("showTime", true)
+                ])
                 ->fullWidth(),
             "after",
             "content"
