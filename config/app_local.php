@@ -5,6 +5,9 @@
  * Note: It is not recommended to commit files with credentials such as app_local.php
  * into source code version control.
  */
+
+use Cake\Mailer\Transport\SmtpTransport;
+
 return [
     /*
      * Debug Level:
@@ -40,24 +43,6 @@ return [
             'username' => env('DB_USER'),
             'password' => env('DB_PASS'),
             'database' => env('DB_NAME'),
-        ],
-    ],
-
-    /*
-     * Email configuration.
-     *
-     * Host and credential configuration in case you are using SmtpTransport
-     *
-     * See app.php for more configuration options.
-     */
-    'EmailTransport' => [
-        'default' => [
-            'host' => 'localhost',
-            'port' => 25,
-            'username' => null,
-            'password' => null,
-            'client' => null,
-            'url' => env('EMAIL_TRANSPORT_DEFAULT_URL', null),
         ],
     ],
 ];
