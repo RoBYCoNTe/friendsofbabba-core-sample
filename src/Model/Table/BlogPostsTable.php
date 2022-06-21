@@ -185,9 +185,15 @@ class BlogPostsTable extends BaseTable
                     "field" => "BlogPostComments.created",
                     "order" => "desc"
                 ])
+                ->setComponentProp("empty", __("No comment added"))
+                ->setComponentProp("sorry", __("You have to save post one time before you can add comments"))
                 ->setComponentProp("perPage", 5)
                 ->setComponentProp("reference", "blog-post-comments")
                 ->setComponentProp("target", "blog_post_id")
+                ->setComponentProp("mobilePrimaryText", "comment_text")
+                ->setComponentProp("mobileSecondaryText", "created")
+                ->setComponentProp("mobileSecondaryComponent", "DateField")
+                ->setComponentProp("mobileSecondaryComponentProps", ["showTime" => true])
                 ->setComponentProp("columns", [
                     GridField::create("comment_text", __("Comment"))
                         ->setSortBy("BlogPostComments.comment_text")
