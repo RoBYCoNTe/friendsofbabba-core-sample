@@ -185,6 +185,7 @@ class BlogPostsTable extends BaseTable
                     "field" => "BlogPostComments.created",
                     "order" => "desc"
                 ])
+                ->setComponentProp("perPage", 5)
                 ->setComponentProp("reference", "blog-post-comments")
                 ->setComponentProp("target", "blog_post_id")
                 ->setComponentProp("columns", [
