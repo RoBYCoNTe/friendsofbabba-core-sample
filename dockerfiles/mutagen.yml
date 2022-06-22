@@ -1,9 +1,9 @@
 beforeCreate:
-  - docker compose up -d #--build --force-recreate --remove-orphans
+  - docker compose -p friendsofbabba_core_sample up -d #--build --force-recreate --remove-orphans
   - docker exec -it friendsofbabba_core_sample_php chown -R www-data:www-data /var/www/
   - docker exec -it friendsofbabba_core_sample_web chown -R www-data:www-data /var/www/
 afterTerminate:
-  - docker compose down
+  - docker compose -p friendsofbabba_core_sample down
 sync:
   defaults:
     flushOnCreate: true

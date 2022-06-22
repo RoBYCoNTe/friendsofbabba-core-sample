@@ -1,2 +1,2 @@
 mutagen project terminate
-docker compose down
+docker compose -p friendsofbabba_core_sample down
