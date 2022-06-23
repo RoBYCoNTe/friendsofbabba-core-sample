@@ -118,6 +118,8 @@ class BlogPostsTable extends BaseTable
             ->dateTime('deleted')
             ->allowEmptyDateTime('deleted');
 
+        // $validator->requirePresence("blog_post_comments");
+
 
         return $validator;
     }
@@ -146,10 +148,13 @@ class BlogPostsTable extends BaseTable
         $grid->setMobileLinkType("edit");
         $grid->setRowClick("edit");
         $grid->getField("author_id")->setSource("author.name");
+        $grid->getField("title")
+            ->setComponent("LongTextField")
+            ->setComponentProp("minWidth", 300);
         $grid->removeField("content");
         $grid->addField(GridField::create("blog_categories", "Categories")
             ->setComponent("ChipArrayField")
-            ->setComponentProp("chipSource", "name"), "after", "content");
+            ->setComponentProp("chipSource", "name"), "after", "title");
 
         return $grid;
     }
