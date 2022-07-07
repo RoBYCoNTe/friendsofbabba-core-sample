@@ -70,6 +70,7 @@ class BlogPostTransactionsTable extends BaseTable
             'dependent' => true
         ]);
         $this->belongsTo('Users', [
+            'className' => 'FriendsOfBabba/Core.Users',
             'foreignKey' => 'user_id',
             'joinType' => 'INNER',
         ]);

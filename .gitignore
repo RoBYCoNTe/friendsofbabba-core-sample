@@ -5,5 +5,5 @@ logs/*
 !logs/.gitkeep
 .DS_Store
 
-
+webroot/media
 plugins/FriendsOfBabba

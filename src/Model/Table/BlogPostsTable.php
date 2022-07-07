@@ -57,6 +57,10 @@ class BlogPostsTable extends BaseTable
 
         $this->addBehavior('Timestamp');
         $this->addBehavior('Search.Search', ['collectionClass' => \App\Model\Filter\BlogPostCollection::class]);
+        $this->addBehavior('FriendsOfBabba/Core.Media', [
+            'Media',
+            'Thumbnail'
+        ]);
 
 
         // Worflow relationships
@@ -77,17 +81,34 @@ class BlogPostsTable extends BaseTable
             'dependent' => true
         ]);
 
+        $this->belongsTo('Authors', [
+            'foreignKey' => 'author_id',
+            'joinType' => 'INNER',
+            'className' => 'FriendsOfBabba/Core.Users'
+        ]);
+
+        $this->belongsToMany('Media', [
+            'className' => 'FriendsOfBabba/Core.Media',
+            'foreignKey' => 'blog_post_id',
+            'joinTable' => 'blog_posts_media',
+            'joinType' => 'LEFT',
+            'targetForeignKey' => 'media_id',
+            'propertyName' => 'media',
+            'dependent' => true
+        ]);
+        $this->belongsTo('Thumbnails', [
+            'className' => 'FriendsOfBabba/Core.Media',
+            'foreignKey' => 'thumbnail_media_id',
+            'joinType' => 'LEFT',
+            'propertyName' => 'thumbnail',
+        ]);
+
         // Relationship with all transaction for BlogPosts
         $this->hasMany('AllTransactions', [
             'foreignKey' => 'record_id',
             'className' => 'BlogPostTransactions',
             'propertyName' => 'all_transactions',
             'dependent' => true
-        ]);
-        $this->belongsTo('Authors', [
-            'foreignKey' => 'author_id',
-            'joinType' => 'INNER',
-            'className' => 'FriendsOfBabba/Core.Users'
         ]);
     }
 
@@ -152,6 +173,7 @@ class BlogPostsTable extends BaseTable
             ->setComponent("LongTextField")
             ->setComponentProp("minWidth", 300);
         $grid->removeField("content");
+        $grid->removeField("thumbnail_media_id");
         $grid->addField(GridField::create("blog_categories", "Categories")
             ->setComponent("ChipArrayField")
             ->setComponentProp("chipSource", "name"), "after", "title");
@@ -212,6 +234,16 @@ class BlogPostsTable extends BaseTable
             "after",
             "content"
         );
+        $form->addInput(FormInput::create('media', __("Media Collection"))
+            ->setComponent("MediaInput")
+            ->setComponentProp("title", "filename")
+            ->setComponentProp("multiple", true), "after", "blog_post_comments");
+
+        $form->addInput(FormInput::create("thumbnail", __("Thumbnail"))
+            ->setComponent("MediaInput")
+            ->setComponentProp("title", "filename")
+            ->setComponentProp("accept", "image/*")
+            ->setComponentProp("multiple", false), "after", "title");
         return $form;
     }
 }

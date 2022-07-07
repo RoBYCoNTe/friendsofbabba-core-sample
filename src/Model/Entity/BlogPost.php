@@ -37,6 +37,8 @@ class BlogPost extends Entity
         'created' => true,
         'modified' => true,
         'deleted' => true,
+        'media' => true,
+        'thumbnail' => true,
         'notes' => true,
         'state' => true,
         'is_private' => true,
