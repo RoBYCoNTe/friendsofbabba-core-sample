@@ -186,9 +186,10 @@ class BlogPostsTable extends BaseTable
         $form = parent::getForm($user, $extends);
         $form->setRedirect("edit");
         $form->getInput("author_id")
-            ->setComponent("ReferenceSelectInput")
+            ->setComponent("ReferenceAutocompleteInput")
             ->setComponentProp("reference", "users")
-            ->setComponentProp("optionText", "name");
+            ->setComponentProp("optionText", "name")
+            ->setComponentProp("helperText", __("Select an author"));
         $form->getInput("title")
             ->setComponent("DebouncedTextInput")
             ->setComponentProp("maxLength", 100)
@@ -225,6 +226,24 @@ class BlogPostsTable extends BaseTable
                     GridField::create("comment_text", __("Comment"))
                         ->setSortBy("BlogPostComments.comment_text")
                         ->setComponent("LongTextField"),
+
+                    // Random fields necessary to simulate long lists with responsive behavior
+                    GridField::create("random_text_1", __("Random Text 1"))
+                        ->setComponent("LongTextField")
+                        ->setSortable(FALSE),
+                    GridField::create("random_text_2", __("Random Text 2"))
+                        ->setComponent("LongTextField")
+                        ->setSortable(FALSE),
+                    GridField::create("random_text_3", __("Random Text 3"))
+                        ->setComponent("LongTextField")
+                        ->setSortable(FALSE),
+                    GridField::create("random_date_1", __("Random Date 1"))
+                        ->setComponent("DateField")
+                        ->setSortable(FALSE),
+                    GridField::create("random_numb_1", __("Random Number 1"))
+                        ->setComponent("TextField")
+                        ->setSortable(FALSE),
+
                     GridField::create("created", __("Created"))
                         ->setSortBy("BlogPostComments.created")
                         ->setComponent("DateField")
