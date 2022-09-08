@@ -79,6 +79,8 @@ it	ra.message.delete_content	Are you sure you want to delete this item?
 it	ra.message.delete_title	Cancella %{name} #%{id}
 it	ra.message.details	Dettagli
 it	ra.message.error	Un errore locale è occorso e la tua richiesta non è stata completata.
+it	ra.message.files_rejected	Files non supportati
+it	ra.message.file_rejected	File non supportato
 it	ra.message.invalid_form	Il modulo non è valido. Si prega di verificare la presenza di errori.
 it	ra.message.loading	La pagina si sta caricando, solo un momento per favore
 it	ra.message.no	No

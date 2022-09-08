@@ -162,7 +162,7 @@ class BlogPostsTable extends BaseTable
     public function getGrid(?User $user, bool $extends = TRUE): ?Grid
     {
         $grid = parent::getGrid($user, $extends);
-        // Add custom exporter for data.
+        $grid->setTitle(__("Posts"));
         $grid->addExporter("xlsx", new CrudExcelDocument($grid));
         $grid->setMobilePrimaryText("title");
         $grid->setMobileSecondaryText("content");
@@ -184,6 +184,7 @@ class BlogPostsTable extends BaseTable
     public function getForm(?User $user, bool $extends = TRUE): ?Form
     {
         $form = parent::getForm($user, $extends);
+
         $form->setRedirect("edit");
         $form->getInput("author_id")
             ->setComponent("ReferenceAutocompleteInput")
