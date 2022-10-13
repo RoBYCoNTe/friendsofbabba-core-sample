@@ -18,7 +18,7 @@ class Published extends State
 
 		$this
 			->withLabel(__d("workflow", "Published"))
-			->withDescription(__d("workflow", " "))
+			->withDescription(__d("workflow", "The blog post has been published and is visible to all users. Unpublish it if you don't want to show it anymore."))
 			->setIsInitial(false)
 			->setPermissions([
 				"admin" => ['create' => true, 'read' => true, 'edit' => true, 'move' => true],
@@ -37,6 +37,6 @@ class Published extends State
 					"admin" => ['read' => true, 'edit' => true],
 					"user" => ['read' => true, 'edit' => true],
 				],
-	]);
+			]);
 	}
 }

@@ -18,7 +18,7 @@ class Draft extends State
 
 		$this
 			->withLabel(__d("workflow", "Draft"))
-			->withDescription(__d("workflow", " "))
+			->withDescription(__d("workflow", "No one can see this blog post. Publish it to make it visible to all users."))
 			->setIsInitial(true)
 			->setPermissions([
 				"admin" => ['create' => true, 'read' => true, 'edit' => true, 'move' => true],
@@ -37,6 +37,6 @@ class Draft extends State
 					"admin" => ['read' => true, 'edit' => true],
 					"user" => ['read' => true, 'edit' => true],
 				],
-	]);
+			]);
 	}
 }
