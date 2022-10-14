@@ -49,6 +49,8 @@ $routes->prefix("api", [], function (RouteBuilder $routes) {
     $routes->setExtensions(['xml', 'json']);
     $routes->resources('BlogCategories', ['inflect' => 'dasherize']);
     $routes->resources('BlogPostComments', ['inflect' => 'dasherize']);
+    $routes->resources('Tickets', ['inflect' => 'dasherize']);
+    $routes->resources('TicketTypes', ['inflect' => 'dasherize']);
 });
 
 $routes->scope('/', function (RouteBuilder $builder) {

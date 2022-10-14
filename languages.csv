@@ -14,6 +14,8 @@ it	menu.items.command-logs	Comandi (Logs)
 it	menu.items.commands	Comandi
 it	menu.items.language-messages	Stringhe (i18n)
 it	menu.items.notifications	Notifiche
+it	menu.items.ticket-types	Ticket Types
+it	menu.items.tickets	Tickets
 it	menu.items.users	Utenti
 it	ra.action.add	Aggiungi
 it	ra.action.add_filter	Aggiungi un filtro
