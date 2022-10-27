@@ -31,6 +31,7 @@ class BlogPost extends Entity
      * @var array
      */
     protected $_accessible = [
+        'id' => true,
         'author_id' => true,
         'title' => true,
         'content' => true,
@@ -43,6 +44,7 @@ class BlogPost extends Entity
         'state' => true,
         'is_private' => true,
         'transaction' => true,
-        'blog_categories' => true
+        'blog_categories' => true,
+        'users' => true
     ];
 }

@@ -102,6 +102,15 @@ class BlogPostsTable extends BaseTable
             'joinType' => 'LEFT',
             'propertyName' => 'thumbnail',
         ]);
+        $this->belongsToMany('Users', [
+            'className' => 'FriendsOfBabba/Core.Users',
+            'foreignKey' => 'blog_post_id',
+            'joinTable' => 'blog_posts_users',
+            'joinType' => 'LEFT',
+            'targetForeignKey' => 'user_id',
+            'propertyName' => 'users',
+            'dependent' => true,
+        ]);
 
         // Relationship with all transaction for BlogPosts
         $this->hasMany('AllTransactions', [
@@ -264,6 +273,13 @@ class BlogPostsTable extends BaseTable
             ->setComponentProp("title", "filename")
             ->setComponentProp("accept", "image/*")
             ->setComponentProp("multiple", false), "after", "title");
+
+        $form->addInput(
+            FormInput::create("users", __("Users"))
+                ->setComponent("UsersInput"),
+            'after',
+            'media'
+        );
         return $form;
     }
 }

@@ -28,7 +28,8 @@ class BlogPostsController extends AppController
 			$query = $event->getSubject()->query;
 			$query = $query->contain([
 				'Authors.UserProfiles',
-				'BlogCategories'
+				'BlogCategories',
+				'Users'
 			]);
 		});
 		$this->Crud->execute();
@@ -43,7 +44,8 @@ class BlogPostsController extends AppController
 				'Authors.UserProfiles',
 				'BlogCategories',
 				'Media',
-				'Thumbnails'
+				'Thumbnails',
+				'Users',
 			]);
 		});
 		$this->Crud->execute();
