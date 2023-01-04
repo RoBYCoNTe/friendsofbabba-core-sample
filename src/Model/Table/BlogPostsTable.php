@@ -213,8 +213,7 @@ class BlogPostsTable extends BaseTable
         $form->getInput("author_id")
             ->setComponent("ReferenceAutocompleteInput")
             ->setComponentProp("reference", "users")
-            ->setComponentProp("optionText", "name")
-            ->setComponentProp("helperText", __("Select an author"));
+            ->setComponentProp("optionText", "name");
         $form->getInput("title")
             ->setComponent("DebouncedTextInput")
             ->setComponentProp("maxLength", 100)
@@ -239,6 +238,7 @@ class BlogPostsTable extends BaseTable
                     "field" => "BlogPostComments.created",
                     "order" => "desc"
                 ])
+                ->setUseWorkflow()
                 ->setComponentProp("empty", __("No comment added"))
                 ->setComponentProp("sorry", __("You have to save post one time before you can add comments"))
                 ->setComponentProp("perPage", 5)
@@ -254,21 +254,21 @@ class BlogPostsTable extends BaseTable
                         ->setComponent("LongTextField"),
 
                     // Random fields necessary to simulate long lists with responsive behavior
-                    GridField::create("random_text_1", __("Random Text 1"))
-                        ->setComponent("LongTextField")
-                        ->setSortable(FALSE),
-                    GridField::create("random_text_2", __("Random Text 2"))
-                        ->setComponent("LongTextField")
-                        ->setSortable(FALSE),
-                    GridField::create("random_text_3", __("Random Text 3"))
-                        ->setComponent("LongTextField")
-                        ->setSortable(FALSE),
-                    GridField::create("random_date_1", __("Random Date 1"))
-                        ->setComponent("DateField")
-                        ->setSortable(FALSE),
-                    GridField::create("random_numb_1", __("Random Number 1"))
-                        ->setComponent("TextField")
-                        ->setSortable(FALSE),
+                    // GridField::create("random_text_1", __("Random Text 1"))
+                    //     ->setComponent("LongTextField")
+                    //     ->setSortable(FALSE),
+                    // GridField::create("random_text_2", __("Random Text 2"))
+                    //     ->setComponent("LongTextField")
+                    //     ->setSortable(FALSE),
+                    // GridField::create("random_text_3", __("Random Text 3"))
+                    //     ->setComponent("LongTextField")
+                    //     ->setSortable(FALSE),
+                    // GridField::create("random_date_1", __("Random Date 1"))
+                    //     ->setComponent("DateField")
+                    //     ->setSortable(FALSE),
+                    // GridField::create("random_numb_1", __("Random Number 1"))
+                    //     ->setComponent("TextField")
+                    //     ->setSortable(FALSE),
 
                     GridField::create("created", __("Created"))
                         ->setSortBy("BlogPostComments.created")
@@ -283,6 +283,7 @@ class BlogPostsTable extends BaseTable
             ->setComponent("MediaInput")
             ->setComponentProp("title", "filename")
             ->setComponentProp("multiple", true)
+            ->setComponentProp("empty", __("No media added"))
             ->setUseWorkflow(), "after", "blog_post_comments");
 
         $form->addInput(FormInput::create("thumbnail", __("Thumbnail"))
@@ -294,6 +295,7 @@ class BlogPostsTable extends BaseTable
 
         $form->addInput(FormInput::create("users", __("Users"))
             ->setComponent("UsersInput")
+            ->setComponentProp("helperText", null)
             ->setUseWorkflow(), 'after', 'media');
         return $form;
     }
