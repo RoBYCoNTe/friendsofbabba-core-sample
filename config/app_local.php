@@ -6,8 +6,6 @@
  * into source code version control.
  */
 
-use Cake\Mailer\Transport\SmtpTransport;
-
 return [
     /*
      * Debug Level:
@@ -39,6 +37,12 @@ return [
      */
     'Datasources' => [
         'default' => [
+            'host' => env('DB_HOST'),
+            'username' => env('DB_USER'),
+            'password' => env('DB_PASS'),
+            'database' => env('DB_NAME'),
+        ],
+        'test' => [
             'host' => env('DB_HOST'),
             'username' => env('DB_USER'),
             'password' => env('DB_PASS'),

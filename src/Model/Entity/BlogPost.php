@@ -35,6 +35,7 @@ class BlogPost extends Entity
         'author_id' => true,
         'title' => true,
         'content' => true,
+        'published' => true,
         'created' => true,
         'modified' => true,
         'deleted' => true,
@@ -47,4 +48,14 @@ class BlogPost extends Entity
         'blog_categories' => true,
         'users' => true
     ];
+
+    protected $_virtual = [
+        'completed_fields_perc'
+    ];
+
+    protected function _getCompletedFieldsPerc()
+    {
+        // Generate random percentage
+        return rand(0, 100);
+    }
 }

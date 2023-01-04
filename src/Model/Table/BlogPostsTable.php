@@ -8,6 +8,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\Validation\Validator;
 use FriendsOfBabba\Core\Export\Crud\CrudExcelDocument;
+use FriendsOfBabba\Core\Model\Crud\Filter;
 use FriendsOfBabba\Core\Model\Entity\User;
 use FriendsOfBabba\Core\Model\Crud\Form;
 use FriendsOfBabba\Core\Model\Crud\FormInput;
@@ -60,6 +61,9 @@ class BlogPostsTable extends BaseTable
         $this->addBehavior('FriendsOfBabba/Core.Media', [
             'Media',
             'Thumbnail'
+        ]);
+        $this->addBehavior('FriendsOfBabba/Core.DateTime', [
+            'published'
         ]);
 
 
@@ -148,7 +152,12 @@ class BlogPostsTable extends BaseTable
             ->dateTime('deleted')
             ->allowEmptyDateTime('deleted');
 
-        // $validator->requirePresence("blog_post_comments");
+        $validator->add('users', 'custom', [
+            'rule' => function ($value, $context) {
+                return count($value) > 0;
+            },
+            'message' => __('You must select at least one user'),
+        ]);
 
 
         return $validator;
@@ -187,13 +196,19 @@ class BlogPostsTable extends BaseTable
             ->setComponent("ChipArrayField")
             ->setComponentProp("chipSource", "name"), "after", "title");
 
+        $grid->addField(GridField::create("completed_fields_perc", __("Completed"), "ProgressField"), "after", "published");
+
+        $grid->addFilter(Filter::create("date_range", __("Date range"), "DateRangeInput")->alwaysOn());
+        $grid->addFilterDefaultValue("date_range", "today");
+        $grid->addFilterDefaultValue("start_at", date("Y-m-d"));
+        $grid->addFilterDefaultValue("end_at", date("Y-m-d"));
         return $grid;
     }
 
     public function getForm(?User $user, bool $extends = TRUE): ?Form
     {
         $form = parent::getForm($user, $extends);
-
+        $form->removeInput("thumbnail_media_id");
         $form->setRedirect("edit");
         $form->getInput("author_id")
             ->setComponent("ReferenceAutocompleteInput")
@@ -214,6 +229,7 @@ class BlogPostsTable extends BaseTable
             ->setComponent("ReferenceCheckboxGroupInput")
             ->setComponentProp("reference", "blog-categories")
             ->setComponentProp("optionText", "name")
+            ->setUseWorkflow()
             ->fullWidth(), "after", "content");
 
         $form->addInput(
@@ -266,20 +282,19 @@ class BlogPostsTable extends BaseTable
         $form->addInput(FormInput::create('media', __("Media Collection"))
             ->setComponent("MediaInput")
             ->setComponentProp("title", "filename")
-            ->setComponentProp("multiple", true), "after", "blog_post_comments");
+            ->setComponentProp("multiple", true)
+            ->setUseWorkflow(), "after", "blog_post_comments");
 
         $form->addInput(FormInput::create("thumbnail", __("Thumbnail"))
             ->setComponent("MediaInput")
             ->setComponentProp("title", "filename")
             ->setComponentProp("accept", "image/*")
-            ->setComponentProp("multiple", false), "after", "title");
+            ->setComponentProp("multiple", false)
+            ->setUseWorkflow(), "after", "title");
 
-        $form->addInput(
-            FormInput::create("users", __("Users"))
-                ->setComponent("UsersInput"),
-            'after',
-            'media'
-        );
+        $form->addInput(FormInput::create("users", __("Users"))
+            ->setComponent("UsersInput")
+            ->setUseWorkflow(), 'after', 'media');
         return $form;
     }
 }

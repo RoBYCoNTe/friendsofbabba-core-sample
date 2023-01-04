@@ -16,6 +16,10 @@ class Draft extends State
 	{
 		parent::__construct(self::CODE, __d('workflow', 'Draft'));
 
+		$defaultPerms = [
+			'admin' => ['read' => true, 'edit' => true],
+			'user' => ['read' => true, 'edit' => true],
+		];
 		$this
 			->withLabel(__d("workflow", "Draft"))
 			->withDescription(__d("workflow", "No one can see this blog post. Publish it to make it visible to all users."))
@@ -25,18 +29,13 @@ class Draft extends State
 				"user" => ['create' => true, 'read' => true, 'edit' => true, 'move' => true],
 			])
 			->setFieldsPermissions([
-				"author_id" => [
-					"admin" => ['read' => true, 'edit' => true],
-					"user" => ['read' => true, 'edit' => true],
-				],
-				"title" => [
-					"admin" => ['read' => true, 'edit' => true],
-					"user" => ['read' => true, 'edit' => true],
-				],
-				"content" => [
-					"admin" => ['read' => true, 'edit' => true],
-					"user" => ['read' => true, 'edit' => true],
-				],
+				"author_id" => $defaultPerms,
+				"title" => $defaultPerms,
+				"content" => $defaultPerms,
+				"blog_categories" => $defaultPerms,
+				"media" => $defaultPerms,
+				"thumbnail" => $defaultPerms,
+				"users" => $defaultPerms
 			]);
 	}
 }
