@@ -291,6 +291,7 @@ class BlogPostsTable extends BaseTable
             ->setComponentProp("title", "filename")
             ->setComponentProp("accept", "image/*")
             ->setComponentProp("multiple", false)
+            ->setComponentProp("empty", __("No thumbnail"))
             ->setUseWorkflow(), "after", "title");
 
         $form->addInput(FormInput::create("users", __("Users"))
