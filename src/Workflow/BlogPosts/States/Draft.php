@@ -37,6 +37,7 @@ class Draft extends State
 				"media" => $defaultPerms,
 				"thumbnail" => $defaultPerms,
 				"users" => $defaultPerms,
+				"published" => $defaultPerms,
 			]);
 	}
 }

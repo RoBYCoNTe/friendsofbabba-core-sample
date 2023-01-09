@@ -197,7 +197,11 @@ class BlogPostsTable extends BaseTable
             ->setComponentProp("chipSource", "name"), "after", "title");
 
         $grid->addField(GridField::create("completed_fields_perc", __("Completed"), "ProgressField"), "after", "published");
-
+        $grid->addFilter(
+            Filter::create("author_id", __("Author"), "ReferenceAutocompleteInput")
+                ->setComponentProp("reference", "users")
+                ->setComponentProp("optionText", "name")
+        );
         $grid->addFilter(Filter::create("date_range", __("Date range"), "DateRangeInput")->alwaysOn());
         $grid->addFilterDefaultValue("date_range", "today");
         $grid->addFilterDefaultValue("start_at", date("Y-m-d"));
@@ -300,6 +304,7 @@ class BlogPostsTable extends BaseTable
             ->setComponent("UsersInput")
             ->setComponentProp("helperText", null)
             ->setUseWorkflow(), 'after', 'media');
+
         return $form;
     }
 }
