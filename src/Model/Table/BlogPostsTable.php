@@ -206,12 +206,19 @@ class BlogPostsTable extends BaseTable
         $grid->addFilterDefaultValue("date_range", "today");
         $grid->addFilterDefaultValue("start_at", date("Y-m-d"));
         $grid->addFilterDefaultValue("end_at", date("Y-m-d"));
+
+        $grid->addFilter(Filter::create("states", __("States"), "StateArrayInput"));
+
         return $grid;
     }
 
     public function getForm(?User $user, bool $extends = TRUE): ?Form
     {
         $form = parent::getForm($user, $extends);
+        // Simulate custom blog post form with few fields added inside it.
+        $form->setComponent("BlogPostForm");
+
+
         $form->removeInput("thumbnail_media_id");
         $form->setRedirect("edit");
         $form->getInput("author_id")
