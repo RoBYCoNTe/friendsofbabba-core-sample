@@ -156,6 +156,7 @@ it	ra.validation.number	Deve essere un numero
 it	ra.validation.oneOf	Deve essere uno di: %{options}
 it	ra.validation.regex	Deve rispettare il formato (espressione regolare): %{pattern}
 it	ra.validation.required	Campo obbligatorio
+it	ra.validation.slug	Lo slug non è valido
 it	ra.validation_summary.message.explain	Successivamente al primo salvataggio saranno mostrati gli eventuali errori di validazione che è necessario correggere prima dell'inoltro ufficiale della pratica.
 it	ra.validation_summary.message.loading	A breve comparirà l'esito della validazione della sezione corrente, attendere prego...
 it	ra.validation_summary.message.success	Tutte le informazioni presenti nella sezione corrente sono state inserite correttamente.

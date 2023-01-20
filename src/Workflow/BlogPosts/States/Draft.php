@@ -17,7 +17,7 @@ class Draft extends State
 		parent::__construct(self::CODE, __d('workflow', 'Draft'));
 
 		$defaultPerms = [
-			'admin' => ['read' => true, 'edit' => false],
+			'admin' => ['read' => true, 'edit' => true],
 			'user' => ['read' => true, 'edit' => true],
 		];
 		$this
@@ -30,6 +30,7 @@ class Draft extends State
 			])
 			->setFieldsPermissions([
 				"author_id" => $defaultPerms,
+				"slug" => $defaultPerms,
 				"title" => $defaultPerms,
 				"content" => $defaultPerms,
 				"blog_categories" => $defaultPerms,

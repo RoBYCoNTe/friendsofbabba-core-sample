@@ -15,7 +15,10 @@ class Published extends State
 	function __construct()
 	{
 		parent::__construct(self::CODE, __d('workflow', 'Published'));
-
+		$defaultPerms = [
+			'admin' => ['read' => true, 'edit' => false],
+			'user' => ['read' => true, 'edit' => true],
+		];
 		$this
 			->withLabel(__d("workflow", "Published"))
 			->withDescription(__d("workflow", "The blog post has been published and is visible to all users. Unpublish it if you don't want to show it anymore."))
@@ -25,18 +28,10 @@ class Published extends State
 				"user" => ['create' => true, 'read' => true, 'edit' => true, 'move' => true],
 			])
 			->setFieldsPermissions([
-				"author_id" => [
-					"admin" => ['read' => true, 'edit' => true],
-					"user" => ['read' => true, 'edit' => true],
-				],
-				"title" => [
-					"admin" => ['read' => true, 'edit' => true],
-					"user" => ['read' => true, 'edit' => true],
-				],
-				"content" => [
-					"admin" => ['read' => true, 'edit' => true],
-					"user" => ['read' => true, 'edit' => true],
-				],
+				"author_id" => $defaultPerms,
+				"slug" => $defaultPerms,
+				"title" => $defaultPerms,
+				"content" => $defaultPerms,
 			]);
 	}
 }

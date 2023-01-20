@@ -215,16 +215,17 @@ class BlogPostsTable extends BaseTable
     public function getForm(?User $user, bool $extends = TRUE): ?Form
     {
         $form = parent::getForm($user, $extends);
-        // Simulate custom blog post form with few fields added inside it.
-        $form->setComponent("BlogPostForm");
-
-
-        $form->removeInput("thumbnail_media_id");
+        $form->setRefresh(true);
         $form->setRedirect("edit");
+        $form->removeInput("thumbnail_media_id");
         $form->getInput("author_id")
             ->setComponent("ReferenceAutocompleteInput")
             ->setComponentProp("reference", "users")
             ->setComponentProp("optionText", "name");
+        $form->getInput("slug")
+            ->setComponent("SlugInput")
+            ->setComponentProp("dependency", "title")
+            ->fullWidth();
         $form->getInput("title")
             ->setComponent("DebouncedTextInput")
             ->setComponentProp("maxLength", 100)
