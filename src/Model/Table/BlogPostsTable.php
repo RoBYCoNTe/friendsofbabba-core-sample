@@ -65,6 +65,10 @@ class BlogPostsTable extends BaseTable
         $this->addBehavior('FriendsOfBabba/Core.DateTime', [
             'published'
         ]);
+        $this->addBehavior('FriendsOfBabba/Core.Text', [
+            'ucwords' => ['title'],
+            'slugs-underscore' => ['slug'],
+        ]);
 
 
         // Worflow relationships
@@ -181,6 +185,7 @@ class BlogPostsTable extends BaseTable
     {
         $grid = parent::getGrid($user, $extends);
         $grid->setTitle(__("Posts"));
+        $grid->setFilterVariant("outlined");
         $grid->addExporter("xlsx", new CrudExcelDocument($grid));
         $grid->setMobilePrimaryText("title");
         $grid->setMobileSecondaryText("content");
@@ -215,9 +220,12 @@ class BlogPostsTable extends BaseTable
     public function getForm(?User $user, bool $extends = TRUE): ?Form
     {
         $form = parent::getForm($user, $extends);
+        $form->setComponentProp("variant", "outlined");
         $form->setRefresh(true);
         $form->setRedirect("edit");
         $form->removeInput("thumbnail_media_id");
+        $form->addInput(FormInput::create("time", __("Time"))
+            ->setComponent("TimeInput"));
         $form->getInput("author_id")
             ->setComponent("ReferenceAutocompleteInput")
             ->setComponentProp("reference", "users")
@@ -294,14 +302,15 @@ class BlogPostsTable extends BaseTable
             "content"
         );
         $form->addInput(FormInput::create('media', __("Media Collection"))
-            ->setComponent("MediaInput")
+            ->setComponent("ImageInput")
             ->setComponentProp("title", "filename")
             ->setComponentProp("multiple", true)
+            ->setComponentProp("accept", "image/*")
             ->setComponentProp("empty", __("No media added"))
             ->setUseWorkflow(), "after", "blog_post_comments");
 
         $form->addInput(FormInput::create("thumbnail", __("Thumbnail"))
-            ->setComponent("MediaInput")
+            ->setComponent("ImageInput")
             ->setComponentProp("title", "filename")
             ->setComponentProp("accept", "image/*")
             ->setComponentProp("multiple", false)

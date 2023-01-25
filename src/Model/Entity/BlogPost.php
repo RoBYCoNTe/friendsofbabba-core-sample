@@ -33,6 +33,7 @@ class BlogPost extends Entity
     protected $_accessible = [
         'id' => true,
         'author_id' => true,
+        'slug' => true,
         'title' => true,
         'content' => true,
         'published' => true,

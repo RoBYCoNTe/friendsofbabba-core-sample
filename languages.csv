@@ -84,6 +84,8 @@ it	ra.image.upload_several	Trascina le immagini da caricare, oppure clicca per s
 it	ra.image.upload_single	Trascina l'immagine da caricare, oppure clicca per selezionarla.
 it	ra.input.file.upload_several	Trascina i files da caricare, oppure clicca per selezionare.
 it	ra.input.file.upload_single	Trascina il file da caricare, oppure clicca per selezionarlo.
+it	ra.input.image.upload_several	Seleziona o trascina uno o più file da caricare
+it	ra.input.image.upload_single	Seleziona o trascina un file da caricare
 it	ra.input.password.toggle_hidden	Nascondi Password
 it	ra.input.password.toggle_visible	Mostra Password
 it	ra.message.about	Informazioni
