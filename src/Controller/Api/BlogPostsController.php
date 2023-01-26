@@ -29,7 +29,8 @@ class BlogPostsController extends AppController
 			$query = $query->contain([
 				'Authors.UserProfiles',
 				'BlogCategories',
-				'Users'
+				'Users',
+				'Thumbnails'
 			]);
 		});
 		$this->Crud->execute();

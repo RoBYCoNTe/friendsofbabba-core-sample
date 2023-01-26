@@ -197,6 +197,14 @@ class BlogPostsTable extends BaseTable
             ->setComponentProp("minWidth", 300);
         $grid->removeField("content");
         $grid->removeField("thumbnail_media_id");
+        $grid->addField(
+            GridField::create("thumbnail", __("Thumbnail"), "CoverField")
+                ->setComponentProp("source", "thumbnail.file.path")
+                ->setComponentProp("title", "thumbnail.file.name")
+                ->setComponentProp("width", 100),
+            "before",
+            "title"
+        );
         $grid->addField(GridField::create("blog_categories", "Categories")
             ->setComponent("ChipArrayField")
             ->setComponentProp("chipSource", "name"), "after", "title");
