@@ -326,8 +326,10 @@ class BlogPostsTable extends BaseTable
             ->setUseWorkflow(), "after", "title");
 
         $form->addInput(FormInput::create("users", __("Users"))
-            ->setComponent("UsersInput")
-            ->setComponentProp("helperText", null)
+            ->setComponent("ReferenceAutocompleteArrayInput")
+            ->setComponentProp("reference", "users")
+            ->setComponentProp("optionText", "name")
+            ->setComponentProp("helperText", __("Choose users"))
             ->setUseWorkflow(), 'after', 'media');
 
         return $form;
