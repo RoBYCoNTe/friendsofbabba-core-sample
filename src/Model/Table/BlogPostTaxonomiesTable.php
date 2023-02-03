@@ -126,9 +126,10 @@ class BlogPostTaxonomiesTable extends BaseTable
     {
         $form = parent::getForm($user, $extends);
 
-        $form->setTitle(__("Blog Post Taxonomies"));
+        // $form->setTitle(__("Add Taxonomy||||Taxonomy: %{name} (%{id})"));
+        $form->setCreateTitle(__("Add Taxonomy"));
+        $form->setEditTitle(__("Taxonomy: %{name} (%{id})"));
         $form->setRedirect("list");
-        // $form->setRefresh(true);
         $form->setToolbarComponentProp("backReferenceTarget", "parent_id");
         $form->setToolbarComponentProp("backReference", "blog-post-taxonomies");
         $form->setToolbarComponentProp("backTab", null);
@@ -141,7 +142,8 @@ class BlogPostTaxonomiesTable extends BaseTable
                 ->setComponent("ReferenceListField")
                 ->setComponentProp("sort", ["field" => "Taxonomies.id", "order" => "desc"])
                 ->setComponentProp("empty", __("No sub taxonomies."))
-                ->setComponentProp("sorry", __("You have to save taxonomy first."))
+                // ->setComponentProp("sorry", __("You have to save taxonomy first."))
+                ->setComponentProp("sorry", FALSE)
                 ->setComponentProp("perPage", 10)
                 ->setComponentProp("reference", "blog-post-taxonomies")
                 ->setComponentProp("target", "parent_id")
