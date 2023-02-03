@@ -47,6 +47,7 @@ use Cake\Routing\RouteBuilder;
 $routes->setRouteClass(DashedRoute::class);
 $routes->prefix("api", [], function (RouteBuilder $routes) {
     $routes->setExtensions(['xml', 'json']);
+    $routes->resources('BlogPostTaxonomies', ['inflect' => 'dasherize']);
     $routes->resources('BlogCategories', ['inflect' => 'dasherize']);
     $routes->resources('BlogPostComments', ['inflect' => 'dasherize']);
     $routes->resources('Tickets', ['inflect' => 'dasherize']);

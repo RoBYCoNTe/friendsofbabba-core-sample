@@ -67,7 +67,7 @@ class BlogPostsTable extends BaseTable
         ]);
         $this->addBehavior('FriendsOfBabba/Core.Text', [
             'ucwords' => ['title'],
-            'slugs-underscore' => ['slug'],
+            'slugs' => ['slug'],
         ]);
 
 
