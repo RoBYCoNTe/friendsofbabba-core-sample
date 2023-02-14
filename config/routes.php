@@ -52,6 +52,13 @@ $routes->prefix("api", [], function (RouteBuilder $routes) {
     $routes->resources('BlogPostComments', ['inflect' => 'dasherize']);
     $routes->resources('Tickets', ['inflect' => 'dasherize']);
     $routes->resources('TicketTypes', ['inflect' => 'dasherize']);
+
+    // Create alias for BlogPosts to Posts
+    $routes->resources('BlogPosts', [
+        'inflect' => 'dasherize',
+        'path' => '/posts',
+        'controller' => 'BlogPosts'
+    ]);
 });
 
 $routes->scope('/', function (RouteBuilder $builder) {

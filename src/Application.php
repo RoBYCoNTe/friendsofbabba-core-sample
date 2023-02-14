@@ -29,6 +29,7 @@ use Cake\Http\MiddlewareQueue;
 use Cake\ORM\Locator\TableLocator;
 use Cake\Routing\Middleware\AssetMiddleware;
 use Cake\Routing\Middleware\RoutingMiddleware;
+use FriendsOfBabba\Core\Model\CrudFactory;
 
 /**
  * Application setup class.
@@ -68,6 +69,7 @@ class Application extends BaseApplication
         }
 
         // Load more plugins here
+        CrudFactory::instance()->registerAlias("BlogPosts", "posts");
     }
 
     /**

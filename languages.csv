@@ -20,7 +20,6 @@ it	Forbidden	Accesso non consentito
 it	menu.groups.admin	Amministrazione
 it	menu.groups.blog	Blog
 it	menu.groups.dashboard	Dashboard
-it	menu.groups.links	menu.groups.links
 it	menu.items.blog-categories	Categorie
 it	menu.items.blog-post-comments	Commenti
 it	menu.items.blog-post-taxonomies	Tassonomie
@@ -28,20 +27,9 @@ it	menu.items.blog-posts	Posts
 it	menu.items.command-log-rows	Comandi (Row Logs)
 it	menu.items.command-logs	Comandi (Logs)
 it	menu.items.commands	Comandi
-it	menu.items.executive-projects	menu.items.executive-projects
-it	menu.items.help	menu.items.help
-it	menu.items.help.accessibility	menu.items.help.accessibility
-it	menu.items.help.pdf	menu.items.help.pdf
-it	menu.items.help.pdf.sub	menu.items.help.pdf.sub
-it	menu.items.help.sub	menu.items.help.sub
 it	menu.items.language-messages	Stringhe (i18n)
 it	menu.items.notifications	Notifiche
-it	menu.items.post-categories	menu.items.post-categories
-it	menu.items.post-sources	menu.items.post-sources
-it	menu.items.posts	menu.items.posts
-it	menu.items.projects	menu.items.projects
-it	menu.items.site	menu.items.site
-it	menu.items.site.sub	menu.items.site.sub
+it	menu.items.posts	Posts (Alias)
 it	menu.items.ticket-types	Ticket Types
 it	menu.items.tickets	Tickets
 it	menu.items.users	Utenti
@@ -102,7 +90,6 @@ it	ra.input.image.upload_several	Seleziona o trascina uno o più file da caricar
 it	ra.input.image.upload_single	Seleziona o trascina un file da caricare
 it	ra.input.password.toggle_hidden	Nascondi Password
 it	ra.input.password.toggle_visible	Mostra Password
-it	ra.login.alert	ra.login.alert
 it	ra.message.about	Informazioni
 it	ra.message.are_you_sure	Sei sicuro?
 it	ra.message.bulk_delete_content	Sei sicuro di voler cancellare questo %{name}? |||| Sei sicuro di voler eliminare questi %{smart_count}?
