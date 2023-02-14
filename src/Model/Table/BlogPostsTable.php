@@ -8,6 +8,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\Validation\Validator;
 use FriendsOfBabba\Core\Export\Crud\CrudExcelDocument;
+use FriendsOfBabba\Core\Model\Crud\Badge;
 use FriendsOfBabba\Core\Model\Crud\Filter;
 use FriendsOfBabba\Core\Model\Entity\User;
 use FriendsOfBabba\Core\Model\Crud\Form;
@@ -333,5 +334,24 @@ class BlogPostsTable extends BaseTable
             ->setUseWorkflow(), 'after', 'media');
 
         return $form;
+    }
+
+    public function getAliasGrid(?User $user, bool $extends = TRUE, ?string $alias = NULL): ?Grid
+    {
+        $grid = parent::getAliasGrid($user, $extends, $alias);
+        $grid->removeField("author.name");
+        return $grid;
+    }
+
+    public function getAliasForm(?User $user, bool $extends = TRUE, ?string $alias = NULL): ?Form
+    {
+        $form = parent::getAliasForm($user, $extends, $alias);
+        $form->removeInput("author_id");
+        return $form;
+    }
+
+    public function getAliasBadge(?User $user, ?string $alias = NULL): ?Badge
+    {
+        return Badge::create("secondary", "0");
     }
 }
