@@ -333,6 +333,8 @@ class BlogPostsTable extends BaseTable
             ->setComponentProp("helperText", __("Choose users"))
             ->setUseWorkflow(), 'after', 'media');
 
+        $form->getInput("logs")->setComponentProp("reference", "workflow/transactions/blog-posts");
+
         return $form;
     }
 

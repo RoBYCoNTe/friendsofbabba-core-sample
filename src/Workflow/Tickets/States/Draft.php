@@ -42,6 +42,10 @@ class Draft extends State
 					"admin" => ['read' => true, 'edit' => true],
 					"user" => ['read' => true, 'edit' => true],
 				],
+				"media" => [
+					"admin" => ['read' => true, 'edit' => true],
+					"user" => ['read' => true, 'edit' => true],
+				],
 			]);
 	}
 }

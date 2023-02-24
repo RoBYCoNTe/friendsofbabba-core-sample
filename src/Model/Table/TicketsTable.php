@@ -168,7 +168,8 @@ class TicketsTable extends BaseTable
         $form->addInput(FormInput::create('media', __("Media"))
             ->setComponent("MediaInput")
             ->setComponentProp("title", "filename")
-            ->setComponentProp("multiple", true), "after", "content");
+            ->setComponentProp("multiple", true)
+            ->setUseWorkflow(true), "after", "content");
 
         return $form;
     }

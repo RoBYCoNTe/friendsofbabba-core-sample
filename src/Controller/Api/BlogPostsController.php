@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Api;
 
+use App\Model\Entity\BlogPost;
 use Cake\Event\Event;
 use Cake\ORM\Query;
 use FriendsOfBabba\Core\Controller\Api\AppController;
@@ -32,6 +33,19 @@ class BlogPostsController extends AppController
 				'Users',
 				'Thumbnails'
 			]);
+		});
+		$this->Crud->execute();
+	}
+
+	public function add()
+	{
+		$this->Crud->on('beforeSave', function (Event $event) {
+			/** @var BlogPost */
+			$entity = $event->getSubject()->entity;
+			if (empty($entity->author_id)) {
+				$user = $this->getUser();
+				$entity->author_id = $user->id;
+			}
 		});
 		$this->Crud->execute();
 	}

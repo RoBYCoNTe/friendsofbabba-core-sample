@@ -4,7 +4,6 @@ namespace App\Workflow\Tickets\States;
 
 use FriendsOfBabba\Core\Workflow\State;
 use FriendsOfBabba\Core\Workflow\WorkflowTrait;
-use FriendsOfBabba\Core\Model\Entity\Role;
 
 class Closed extends State
 {
@@ -26,21 +25,25 @@ class Closed extends State
 			])
 			->setFieldsPermissions([
 				"user_id" => [
-					"admin" => ['read' => true, 'edit' => true],
-					"user" => ['read' => true, 'edit' => true],
+					"admin" => ['read' => true, 'edit' => false],
+					"user" => ['read' => true, 'edit' => false],
 				],
 				"ticket_type_id" => [
-					"admin" => ['read' => true, 'edit' => true],
-					"user" => ['read' => true, 'edit' => true],
+					"admin" => ['read' => true, 'edit' => false],
+					"user" => ['read' => true, 'edit' => false],
 				],
 				"subject" => [
-					"admin" => ['read' => true, 'edit' => true],
-					"user" => ['read' => true, 'edit' => true],
+					"admin" => ['read' => true, 'edit' => false],
+					"user" => ['read' => true, 'edit' => false],
 				],
 				"content" => [
-					"admin" => ['read' => true, 'edit' => true],
-					"user" => ['read' => true, 'edit' => true],
+					"admin" => ['read' => true, 'edit' => false],
+					"user" => ['read' => true, 'edit' => false],
 				],
+				"media" => [
+					"admin" => ["read" => true, "edit" => false],
+					"user" => ["read" => true, "edit" => false],
+				]
 			]);
 	}
 }
