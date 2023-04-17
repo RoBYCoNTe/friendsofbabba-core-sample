@@ -67,7 +67,7 @@ it	ra.auth.back_to_login	Torna al login
 it	ra.auth.impersonating.undo	Smetti di impersonate %{name}
 it	ra.auth.impersonating.undo.short	Esci da %{name}
 it	ra.auth.login.spid	Entra con SPID/CIE/CNS
-it	ra.auth.logout	Disconnessione
+it	ra.auth.logout	Disconnetti
 it	ra.auth.password	Password
 it	ra.auth.password_reset.button	Reimposta
 it	ra.auth.password_reset.title	Reimposta password
@@ -234,3 +234,7 @@ it	resources.workflow.move.message	Note/Messaggio
 it	resources.workflow.move.message.required	Devi inserire una nota/messaggio come causale del cambio stato
 it	resources.workflow.move.success	Cambio stato eseguito correttamente
 it	resources.workflow.move.title	Cambio Stato
+it	ra.notifications.read_all	Segna tutto come letto
+it	ra.notifications.title	Notifiche
+it	ra.notifications.unreaded	Hai %{unreaded} messaggi da leggere
+it	ra.action.view_all	Vedi tutto
