@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use Migrations\AbstractMigration;
@@ -75,7 +76,7 @@ class BlogPostComments extends AbstractMigration
                 'after' => 'surname',
                 'default' => null,
                 'length' => 30,
-                'null' => false,
+                'null' => true,
             ])
             ->update();
     }
