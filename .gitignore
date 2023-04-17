@@ -7,3 +7,5 @@ logs/*
 
 webroot/media
 plugins/FriendsOfBabba
+
+.ddev
