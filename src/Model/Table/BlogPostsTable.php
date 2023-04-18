@@ -244,11 +244,11 @@ class BlogPostsTable extends BaseTable
             ->setComponentProp("dependency", "title")
             ->fullWidth();
         $form->getInput("title")
-            ->setComponent("DebouncedTextInput")
+            ->setComponent("CountableTextInput")
             ->setComponentProp("maxLength", 100)
             ->fullWidth();
         $form->getInput("content")
-            ->setComponent("DebouncedTextInput")
+            ->setComponent("CountableTextInput")
             ->setComponentProp("maxLength", 1000)
             ->setComponentProp("multiline", true)
             ->fullWidth();

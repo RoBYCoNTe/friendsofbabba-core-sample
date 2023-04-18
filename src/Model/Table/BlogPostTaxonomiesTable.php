@@ -135,7 +135,7 @@ class BlogPostTaxonomiesTable extends BaseTable
         $form->setToolbarComponentProp("backTab", null);
 
         $form->removeInput("parent_id");
-        $form->getInput("name")->setComponent("DebouncedTextInput")->setComponentProp("maxLength", 100);
+        $form->getInput("name")->setComponent("CountableTextInput")->setComponentProp("maxLength", 100);
         $form->getInput("slug")->setComponent("SlugInput")->setComponentProp("dependency", "name");
         $form->addInput(
             FormInput::create("subtaxonomies", __("Sub taxonomies"))
