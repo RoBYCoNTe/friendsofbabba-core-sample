@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Table;
@@ -46,26 +47,8 @@ class TicketTypesTable extends BaseTable
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
-		$this->addBehavior('Search.Search', ['collectionClass' => \App\Model\Filter\TicketTypeCollection::class]);
-
-
-        // Worflow relationships
-        // Relationship with current (last) transaction for TicketTypes
-        $this->hasOne('Transactions', [
-            'foreignKey' => 'record_id',
-            'className' => 'TicketTypeTransactions',
-            'propertyName' => 'transaction',
-            'dependent' => true,
-            'conditions' => ['Transactions.is_current' => true]
-        ]);
-
-        // Relationship with all transaction for TicketTypes
-        $this->hasMany('AllTransactions', [
-            'foreignKey' => 'record_id',
-            'className' => 'TicketTypeTransactions',
-            'propertyName' => 'all_transactions',
-            'dependent' => true
-        ]);    }
+        $this->addBehavior('Search.Search', ['collectionClass' => \App\Model\Filter\TicketTypeCollection::class]);
+    }
 
     /**
      * Default validation rules.
