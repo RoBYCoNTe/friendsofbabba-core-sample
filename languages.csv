@@ -1,5 +1,5 @@
 it	activity_plan.description_of_context.help	Descrizione del contesto territoriale e sociale all’interno del quale è collocato il Centro Risorse e analisi dei fabbisogni espressi dalla comunità giovanile locale
-it	app.date_format.long	DD/MM/YYYY, HH:mm:ss
+it	app.date_format.long	dd/MM/yyyy, HH:mm:ss
 it	app.date_range.all	Tutto
 it	app.date_range.day	Giorno
 it	app.date_range.last_30_days	Ultimi 30 giorni
