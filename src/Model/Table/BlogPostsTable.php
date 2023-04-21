@@ -202,7 +202,9 @@ class BlogPostsTable extends BaseTable
             GridField::create("thumbnail", __("Thumbnail"), "CoverField")
                 ->setComponentProp("source", "thumbnail.file.path")
                 ->setComponentProp("title", "thumbnail.file.name")
-                ->setComponentProp("width", 100),
+                ->setComponentProp("width", 50)
+                ->setComponentProp("height", 50)
+                ->setComponentProp("circle", true),
             "before",
             "title"
         );
