@@ -306,8 +306,8 @@ class BlogPostsTable extends BaseTable
                         ->setSortBy("BlogPostComments.created")
                         ->setComponent("DateField")
                         ->setComponentProp("showTime", true),
-                    GridField::create("edit", __("Edit"))
-                        ->setComponent("TestButton")
+                    // GridField::create("edit", __("Edit"))
+                    //     ->setComponent("TestButton")
                 ])
                 ->fullWidth(),
             "after",
