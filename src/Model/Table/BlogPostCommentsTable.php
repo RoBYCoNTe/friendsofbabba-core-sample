@@ -105,7 +105,7 @@ class BlogPostCommentsTable extends BaseTable
     {
         $form = parent::getForm($user, $extends);
         // $form->setRedirect(NULL);
-        $form->setRefresh(TRUE);
+        // $form->setRefresh(TRUE);
         $form->setToolbarComponentProp("backReferenceTarget", "blog_post_id");
         $form->setToolbarComponentProp("backReference", "blog-posts");
         $form->setToolbarComponentProp("backTab", 0);
