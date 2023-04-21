@@ -148,7 +148,8 @@ class TicketsTable extends BaseTable
         $form->getInput("user_id")
             ->setComponent("ReferenceAutocompleteInput")
             ->setComponentProp("reference", "users")
-            ->setComponentProp("optionText", "name");
+            ->setComponentProp("optionText", "name")
+            ->fullWidth();
 
         $form->getInput("ticket_type_id")
             ->setComponent("ReferenceSelectInput")

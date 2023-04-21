@@ -232,6 +232,7 @@ class BlogPostsTable extends BaseTable
         $form->setComponentProp("variant", "outlined");
         $form->setRefresh(true);
         $form->setRedirect("edit");
+        $form->setTitle('Post');
         $form->removeInput("thumbnail_media_id");
         $form->addInput(FormInput::create("time", __("Time"))
             ->setComponent("TimeInput"));

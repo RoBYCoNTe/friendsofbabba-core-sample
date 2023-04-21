@@ -24,14 +24,14 @@ class BlogPostCollection extends BaseCollection
 		$this->add('start_at', 'Search.Callback', [
 			'callback' => function (Query $query, array $args) {
 				$query->where([
-					$this->table . '.created >=' => $args['start_at']
+					$this->table . '.created >=' => $args['start_at'] . ' 00:00:00'
 				]);
 			}
 		]);
 		$this->add('end_at', 'Search.Callback', [
 			'callback' => function (Query $query, array $args) {
 				$query->where([
-					$this->table . '.created <=' => $args['end_at']
+					$this->table . '.created <=' => $args['end_at'] . ' 23:59:59'
 				]);
 			}
 		]);
