@@ -20,6 +20,8 @@ it	Forbidden	Accesso non consentito
 it	menu.groups.admin	Amministrazione
 it	menu.groups.blog	Blog
 it	menu.groups.dashboard	Dashboard
+it	menu.groups.notifications	menu.groups.notifications
+it	menu.groups.settings	menu.groups.settings
 it	menu.items.blog-categories	Categorie
 it	menu.items.blog-post-comments	Commenti
 it	menu.items.blog-post-taxonomies	Tassonomie
@@ -30,6 +32,7 @@ it	menu.items.commands	Comandi
 it	menu.items.language-messages	Stringhe (i18n)
 it	menu.items.notifications	Notifiche
 it	menu.items.posts	Posts (Alias)
+it	menu.items.posts.caption	Link ai post con customizzazione
 it	menu.items.ticket-types	Ticket Types
 it	menu.items.tickets	Tickets
 it	menu.items.users	Utenti
@@ -61,6 +64,7 @@ it	ra.action.show	Mostra
 it	ra.action.sort	Ordina
 it	ra.action.undo	Annulla
 it	ra.action.unselect	Annulla selezione
+it	ra.action.view_all	Vedi tutto
 it	ra.auth.account	Username o email
 it	ra.auth.auth_check_error	È necessario accedere per continuare
 it	ra.auth.back_to_login	Torna al login
@@ -128,6 +132,10 @@ it	ra.notification.i18n_error	Traduzioni non trovate per il linguaggio specifica
 it	ra.notification.item_doesnt_exist	Record inesistente
 it	ra.notification.logged_out	La sessione è stata terminata, si prega di ripetere l\'autenticazione.
 it	ra.notification.updated	Record aggiornato |||| %{smart_count} records aggiornati
+it	ra.notificationd.updated	ra.notificationd.updated
+it	ra.notifications.read_all	Segna tutto come letto
+it	ra.notifications.title	Notifiche
+it	ra.notifications.unreaded	Hai %{unreaded} messaggi da leggere
 it	ra.no_results	Nessun elemento registrato.
 it	ra.page.create	Aggiungi %{name}
 it	ra.page.dashboard	Cruscotto
@@ -177,8 +185,9 @@ it	resources.blog-categories.fields.id	Id
 it	resources.blog-categories.fields.modified	Modified
 it	resources.blog-categories.fields.name	Name
 it	resources.blog-categories.name	Blog Category |||| Blog Categories
+it	resources.blog-post-comments.create	resources.blog-post-comments.create
 it	resources.blog-post-comments.name	Comment |||| Comments
-it	resources.blog-posts.fields.author_id	Author Id
+it	resources.blog-posts.create	resources.blog-posts.create
 it	resources.blog-posts.fields.author_id	Author
 it	resources.blog-posts.fields.content	Content
 it	resources.blog-posts.fields.created	Created
@@ -202,6 +211,7 @@ it	resources.notifications.messages.readed.done	Notifiche segnate come lette.
 it	resources.notifications.messages.readed.error	Impossibile segnare le notifiche selezionate.
 it	resources.notifications.messages.unreaded.done	Notifiche segnate come non lette.
 it	resources.notifications.readed	Letta in data %{readed}
+it	resources.posts.create	resources.posts.create
 it	resources.spid.fields.profile.birth_date	Data di nascita
 it	resources.spid.fields.profile.birth_place	Luogo di nascita
 it	resources.spid.fields.profile.birth_province	Provincia di nascita
@@ -210,6 +220,10 @@ it	resources.spid.fields.profile.name	Nome
 it	resources.spid.fields.profile.phone	Contatto Telefonico
 it	resources.spid.fields.profile.surname	Cognome
 it	resources.spid.steps.general	Informazioni Generali
+it	resources.ticket-types.create	resources.ticket-types.create
+it	resources.ticket-types.edit	resources.ticket-types.edit
+it	resources.tickets.create	resources.tickets.create
+it	resources.tickets.edit	resources.tickets.edit
 it	resources.transactions.fields.created	Data
 it	resources.transactions.fields.id	#ID
 it	resources.transactions.fields.is_private.helper_text	Indica se la nota è ad uso interno e non deve essere visibile all'utente.
@@ -234,7 +248,3 @@ it	resources.workflow.move.message	Note/Messaggio
 it	resources.workflow.move.message.required	Devi inserire una nota/messaggio come causale del cambio stato
 it	resources.workflow.move.success	Cambio stato eseguito correttamente
 it	resources.workflow.move.title	Cambio Stato
-it	ra.notifications.read_all	Segna tutto come letto
-it	ra.notifications.title	Notifiche
-it	ra.notifications.unreaded	Hai %{unreaded} messaggi da leggere
-it	ra.action.view_all	Vedi tutto
