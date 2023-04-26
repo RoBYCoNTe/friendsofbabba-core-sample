@@ -111,7 +111,7 @@ class BlogPostCommentsTable extends BaseTable
         $form->setToolbarComponentProp("backTab", 0);
         $form->removeInput("blog_post_id");
         $form->getInput("comment_text")
-            ->setComponent("CountableTextInput")
+            ->setComponent("SmartTextInput")
             ->setComponentProp("multiline", true)
             ->setComponentProp("maxLength", 500)
             ->fullWidth()

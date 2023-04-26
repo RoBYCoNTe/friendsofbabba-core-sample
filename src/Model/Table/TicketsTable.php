@@ -157,11 +157,11 @@ class TicketsTable extends BaseTable
             ->setComponentProp("optionText", "name");
 
         $form->getInput("subject")
-            ->setComponent("CountableTextInput")
+            ->setComponent("SmartTextInput")
             ->setComponentProp("maxLength", 100);
 
         $form->getInput("content")
-            ->setComponent("CountableTextInput")
+            ->setComponent("SmartTextInput")
             ->setComponentProp("maxLength", 500)
             ->setComponentProp("multiline", true)
             ->fullWidth();
