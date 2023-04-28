@@ -68,7 +68,7 @@ it	ra.action.view_all	Vedi tutto
 it	ra.auth.account	Username o email
 it	ra.auth.auth_check_error	È necessario accedere per continuare
 it	ra.auth.back_to_login	Torna al login
-it	ra.auth.impersonating.undo	Smetti di impersonate %{name}
+it	ra.auth.impersonating.undo	Smetti di impersonare %{name}
 it	ra.auth.impersonating.undo.short	Esci da %{name}
 it	ra.auth.login.spid	Entra con SPID/CIE/CNS
 it	ra.auth.logout	Disconnetti
