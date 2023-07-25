@@ -4,9 +4,13 @@ declare(strict_types=1);
 
 namespace App\Model\Table;
 
+use Cake\Datasource\EntityInterface;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\Validation\Validator;
+use FriendsOfBabba\Core\Model\Entity\User;
+use FriendsOfBabba\Core\Model\Crud\Grid;
+use FriendsOfBabba\Core\Model\Crud\GridField;
 use SoftDelete\Model\Table\SoftDeleteTrait;
 use FriendsOfBabba\Core\Model\Table\BaseTable;
 
@@ -48,6 +52,13 @@ class BlogCategoriesTable extends BaseTable
 
         $this->addBehavior('Timestamp');
         $this->addBehavior('Search.Search', ['collectionClass' => \App\Model\Filter\BlogCategoryCollection::class]);
+        $this->addBehavior('FriendsOfBabba/Core.Draggable', [
+            'getConditions' => function (EntityInterface $entity) {
+                return [
+                    // 'entity_id' => $entity->id
+                ];
+            }
+        ]);
     }
 
     /**
@@ -80,5 +91,13 @@ class BlogCategoriesTable extends BaseTable
 
 
         return $validator;
+    }
+
+    public function getGrid(?User $user, bool $extends = TRUE): ?Grid
+    {
+        $grid = parent::getGrid($user, $extends);
+        $grid->setDraggable(true);
+
+        return $grid;
     }
 }
